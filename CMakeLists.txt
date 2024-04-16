@@ -6,6 +6,8 @@ find_package(JNI REQUIRED)
 include(UseJava)
 include(UseSWIG)
 include_directories(${JNI_INCLUDE_DIRS})
+include_directories(Sandbox_CLang/source/inc)
+file(GLOB Sandbox_CLang "Sandbox_CLang/source/inc/*.h" "Sandbox_CLang/source/src/*.c")
 
 set( CMAKE_SWIG_OUTDIR ${CMAKE_CURRENT_BINARY_DIR} )
 
@@ -14,7 +16,7 @@ swig_add_module(
     example 
     java 
     example.i 
-    example.c
+    ${Sandbox_CLang}
 )
 
 # For convenience we copy the dynamic library to the current build folder
