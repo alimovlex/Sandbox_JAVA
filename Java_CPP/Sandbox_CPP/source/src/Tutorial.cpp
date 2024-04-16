@@ -43,7 +43,7 @@ using namespace chrono;
 int fileTest()
 {
     fstream MyFile;
-    MyFile.open("test.txt");
+    MyFile.open("test.txt", ios::out);
     MyFile << "Hello" << endl;
     if (MyFile.is_open())
     {
