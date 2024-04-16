@@ -27,7 +27,6 @@
 #include <iomanip>
 #include <memory>
 #include <cstdarg>
-#include "Tutorial.hpp"
 //#include "STLTest.hpp"
 //----------------------------------------MACROSES
 #define MIN(a,b) (((a)<(b)) ? a : b)
@@ -71,6 +70,25 @@ int fileTest()
     return 0;
 
 }
+
+int localTimeCheck()
+{
+    // current date/time based on current system
+    time_t now = time(0);
+
+    // convert now to string form
+    char* dt = ctime(&now);
+
+    cout << "The local date and time is: " << dt << endl;
+
+    // convert now to tm struct for UTC
+    tm *gmtm = gmtime(&now);
+    dt = asctime(gmtm);
+    cout << "The UTC date and time is:" << dt << endl;
+
+    return 0;
+}
+
 int testingPointers()
 {
     int x = 1;
@@ -110,24 +128,6 @@ int testingPointers()
     return 0;
     //j = *p; ERROR
     //now x==xref==3
-}
-
-int localTimeCheck()
-{
-    // current date/time based on current system
-    time_t now = time(0);
-
-    // convert now to string form
-    char* dt = ctime(&now);
-
-    cout << "The local date and time is: " << dt << endl;
-
-    // convert now to tm struct for UTC
-    tm *gmtm = gmtime(&now);
-    dt = asctime(gmtm);
-    cout << "The UTC date and time is:" << dt << endl;
-
-    return 0;
 }
 
 int dataTypeSizeTest()
