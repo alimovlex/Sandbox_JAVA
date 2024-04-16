@@ -1,6 +1,6 @@
 %module example
 %{
-  #include "example.hpp"
+  #include "Tutorial.hpp"
 %}
 
-%include "example.hpp"
+%include "Tutorial.hpp"
